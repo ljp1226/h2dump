@@ -23,3 +23,8 @@ Usage of ./h2dump:</br>
 
 ## dump with the simple param if local env, and other param used default value
 ./h2dump -d example_db
+
+## build on three platform
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go</br>
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go</br>
+CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go</br>
