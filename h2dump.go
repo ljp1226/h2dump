@@ -42,7 +42,6 @@ func handleDumpTask() {
 		return
 	}
 
-	//tbarray := make([]byte, len(tableNames))
 	newStrs := ""
 	for idx, tableName := range tableNames {
 		if idx != 0 {
@@ -53,19 +52,13 @@ func handleDumpTask() {
 				if idx != 0 {
 					newLine2 := strings.Split(v, "\t")
 					if len(newLine2) > 1 {
-						newstr := regReplace(newLine2[1])
-						newStrs += newstr
-						//newstrByte := []byte(newstr)
-						//for _, v := range newstrByte {
-						//	tbarray = append(tbarray, v)
-						//}
+						newStrs += regReplace(newLine2[1])
 					}
 				}
 			}
 
 		}
 	}
-	//writeToFile(tbarray)
 	writeToFile2(newStrs)
 	sedCmd := exec.Command("sed", "", "-i", "1d", *fileName)
 	runCMd(sedCmd)
